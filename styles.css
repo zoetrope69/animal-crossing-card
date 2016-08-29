@@ -1,0 +1,234 @@
+*::before, *, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Dosis', 'Roboto', sans-serif;
+  font-size: 10px;
+
+  background: url('images/sky.jpg');
+  background-repeat: repeat-x;
+  background-size: cover;
+}
+
+.startBox {
+  background: white;
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 1em;
+}
+
+.startInstructions {
+  font-size: 2.5em;
+  padding: 0.5em;
+  line-height: 1.25em;
+}
+
+.startInstructions br {
+  margin-bottom: 0.25em;
+}
+
+.startButton {
+  width: 100%;
+  padding: 0.5em 0.25em;
+
+  color: white;
+  font: inherit;
+  font-size: 4em;
+
+  border: 0;
+  border-radius: 5px;
+  background: #303086;
+}
+
+.container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow-x: hidden; /* clearfix */
+}
+
+.wrapper {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 1em;
+  padding-top: 3em;
+}
+
+.logo {
+  width: 80%;
+  margin: 0 auto 4em;
+  display: block;
+}
+
+.animateIn .logo {
+  animation: logoIn 1s ease-out forwards;
+}
+
+.output::before,
+.output {
+  /* polka dot background */
+  background-image: radial-gradient(rgba(255, 255, 255, 0.075) 30%, transparent 31%),
+                    radial-gradient(rgba(255, 255, 255, 0.075) 30%, transparent 31%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  background-attachment: fixed;
+}
+
+.output {
+  z-index: 2;
+  padding: 1em;
+  padding-top: 1.25em;
+  width: 66.66%;
+  height: 7em;
+  float: left;
+  position: relative;
+
+  line-height: 1.2em;
+  font-size: 2em;
+  font-weight: 500;
+  color: white;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  border-radius: 70px / 55px;
+  border: 5px solid #ffef9d;
+  box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
+
+  transform: translateZ(0);
+}
+
+.animateIn .output {
+  animation: inFromLeft 1.25s ease-out forwards;
+}
+
+/* rover name badge */
+.output::before {
+  content: 'Rover';
+  display: block;
+  position: absolute;
+  left: 0; top: -1.25em;
+  padding: 0.25em 1.5em;
+
+  color: rgba(0, 0, 0, 0.69);
+  font-size: 0.85em;
+  font-weight: 600;
+  text-shadow: none;
+  background-color: #b4fdb4;
+
+  border: 3px solid white;
+  border-radius: 35%;
+}
+
+.rover {
+  z-index: 1;
+  float: right;
+  width: 33.33%;
+}
+
+.animateIn .rover {
+  animation: inFromRight 1s ease-out forwards;
+}
+
+.restartButton {
+  float: left;
+  margin-top: 0.5em;
+  margin-left: 2.5em;
+  padding: 0.5em 1em;
+
+  font: inherit;
+  font-size: 2em;
+  font-weight: 600;
+  color: #eeffdb;
+
+  background: #795548;
+  border: 2px solid #8BC34A;
+  border-radius: 20px;
+
+  cursor: pointer;
+
+  transition: opacity .1s;
+  animation: bob 1s infinite alternate ease-in-out;
+}
+
+.restartButton:hover {
+  opacity: 0.8;
+}
+
+/* grass */
+.footer {
+  content: '';
+  display: block;
+  height: 69px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: -1;
+
+  background: url('images/grass.png');
+  background-repeat: repeat-x;
+}
+
+.animateIn .footer {
+  animation: inFromBottom 1s ease-out forwards;
+}
+
+@keyframes inFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-120%);
+  }
+}
+
+@keyframes inFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(120%);
+  }
+}
+
+@keyframes inFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-120%);
+  }
+}
+
+@keyframes inFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(120%);
+  }
+}
+
+@keyframes bob {
+  50% {
+    transform: translateY(-2.5%);
+  }
+}
+
+
+@keyframes logoIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translateY(120%);
+  }
+}
+
+@media (min-width: 480px) {
+  body { font-size: 15px; }
+  .logo { width: 60%; }
+}
