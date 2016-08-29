@@ -23,9 +23,16 @@ var start = function() {
     // animate in elements
     document.body.classList.add('animateIn');
 
-    var backgroundMusic = document.querySelector('audio');
+    var backgroundMusic = document.querySelector('audio[src="sounds/music.mp3"]');
     backgroundMusic.volume = 0.5;
     backgroundMusic.play();
+
+    for (var i = 1; i <= 4; i++) {
+      var audio = document.querySelector('audio[src="sounds/animalese-' + i + '.wav"]');
+      audio.volume = 0;
+      audio.play();
+      audio.pause();
+    }
 
     setTimeout(init, 1500);
   });
@@ -34,9 +41,9 @@ var start = function() {
 var init = function() {
 
   var synth = new Animalese('sounds/animalese.wav', function() {
-    var say = function(input, callback) {
+    var say = function(input, number, callback) {
         var audio = new Audio();
-        audio.src = synth.Animalese(input).dataURI;
+        var audio = document.querySelector('audio[src="sounds/animalese-' + number + '.wav"]');
         audio.volume = 0.8;
         audio.play();
 
@@ -54,10 +61,10 @@ var init = function() {
       'Well that\'s all from me for now... See you around!'
     ];
 
-    say(textToSay[0], function() {
-      say(textToSay[1], function() {
-        say(textToSay[2], function() {
-          say(textToSay[3], function() {
+    say(textToSay[0], 1, function() {
+      say(textToSay[1], 2, function() {
+        say(textToSay[2], 3, function() {
+          say(textToSay[3], 4, function() {
             var restartButton = document.querySelector('.restartButton');
             restartButton.addEventListener('click', function() {
               document.location.reload(true);
