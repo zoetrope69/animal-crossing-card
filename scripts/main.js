@@ -40,41 +40,38 @@ var start = function() {
 
 var init = function() {
 
-  var synth = new Animalese('sounds/animalese.wav', function() {
-    var say = function(input, number, callback) {
-        var audio = new Audio();
-        var audio = document.querySelector('audio[src="sounds/animalese-' + number + '.wav"]');
-        audio.volume = 0.8;
-        audio.play();
+  var say = function(input, number, callback) {
+      var audio = new Audio();
+      var audio = document.querySelector('audio[src="sounds/animalese-' + number + '.wav"]');
+      audio.volume = 0.8;
+      audio.play();
 
-        // clear the output container
-        output.innerHTML = '';
-        showText(output, input, 0, textSpeed, callback);
-    }
+      // clear the output container
+      output.innerHTML = '';
+      showText(output, input, 0, textSpeed, callback);
+  }
 
-    output.style.display = 'block';
+  output.style.display = 'block';
 
-    var textToSay = [
-      'Hello there Anne! Here to wish you a great day!',
-      'Oh! What\'s this... I have a message from your grandsons!',
-      'Nick and Zac wish you a Happy Birthday and send their love.',
-      'Well that\'s all from me for now... See you around!'
-    ];
+  var textToSay = [
+    'Hello there Anne! Here to wish you a great day!',
+    'Oh! What\'s this... I have a message from your grandsons!',
+    'Nick and Zac wish you a Happy Birthday and send their love.',
+    'Well that\'s all from me for now... See you around!'
+  ];
 
-    say(textToSay[0], 1, function() {
-      say(textToSay[1], 2, function() {
-        say(textToSay[2], 3, function() {
-          say(textToSay[3], 4, function() {
-            var restartButton = document.querySelector('.restartButton');
-            restartButton.addEventListener('click', function() {
-              document.location.reload(true);
-            });
-            restartButton.style.display = 'block';
+  say(textToSay[0], 1, function() {
+    say(textToSay[1], 2, function() {
+      say(textToSay[2], 3, function() {
+        say(textToSay[3], 4, function() {
+          var restartButton = document.querySelector('.restartButton');
+          restartButton.addEventListener('click', function() {
+            document.location.reload(true);
           });
+          restartButton.style.display = 'block';
         });
       });
     });
-
   });
 };
 
