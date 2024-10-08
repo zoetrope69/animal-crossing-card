@@ -55,8 +55,8 @@ var init = function() {
 
   var textToSay = [
     'Hello there Anne! Here to wish you a great day!',
-    'Oh! What\'s this... I have a message from your grandsons!',
-    'Nick and Zac wish you a Happy Birthday and send their love.',
+    'Oh! What\'s this... I have a message from your grandchildren!',
+    'Nick and Zoe wish you a Happy Birthday and send their love.',
     'Well that\'s all from me for now... See you around!'
   ];
 
